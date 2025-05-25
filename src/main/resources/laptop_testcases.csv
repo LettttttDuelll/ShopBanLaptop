@@ -1,0 +1,17 @@
+Name,Model,OriginalPrice,CurrentPrice,Discord,Link,Description,ExpectedResult
+Dell XPS 13,XPS 2024,30000000,28000000,Dell123,http://dell.com/xps13,Laptop cao cấp,"Thêm thành công, thông báo 'Thêm laptop thành công'"
+,XPS 2024,30000000,28000000,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Tên laptop không được để trống'
+Dell XPS 13,,30000000,28000000,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Model không được để trống'
+Dell XPS 13,XPS 2024,abc,28000000,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Giá gốc phải là số hợp lệ'
+Dell XPS 13,XPS 2024,-1000,28000000,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Giá gốc phải là số dương'
+Dell XPS 13,XPS 2024,30000000,abc,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Giá hiện tại phải là số hợp lệ'
+Dell XPS 13,XPS 2024,30000000,-500,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Giá hiện tại phải là số dương'
+Dell XPS 13,XPS 2024,25000000,26000000,Dell123,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Giá hiện tại không được lớn hơn giá gốc'
+Dell XPS 13,XPS 2024,30000000,28000000,,http://dell.com/xps13,Laptop cao cấp,Hiển thị lỗi 'Discord không được để trống'
+Dell XPS 13,XPS 2024,30000000,28000000,Dell123,dellcom/xps13,Laptop cao cấp,Hiển thị lỗi 'Link không đúng định dạng URL'
+Dell XPS 13,XPS 2024,30000000,28000000,Dell123,,Laptop cao cấp,Hiển thị lỗi 'Link không được để trống'
+Dell XPS 13,XPS 2024,30000000,28000000,Dell123,http://dell.com/xps13,,"Chấp nhận, thêm thành công"
+Dell XPS 13,XPS 2024,30000000,28000000,Dell123,http://dell.com/xps13,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Hiển thị lỗi 'Mô tả không được quá 500 ký tự'
+,,,,,,," ""Hiển thị lỗi phù hợp cho từng trường"""
+Dell XPS @2024!,XPS 2024,30000000,28000000,Dell123,http://dell.com/xps13,Laptop cao cấp,Chấp nhận hoặc báo lỗi tùy yêu cầu
+Dell XPS 13,XPS 2024,0,0,Dell123,http://dell.com/xps13,Laptop cao cấp,Chấp nhận hoặc báo lỗi nếu giá phải > 0

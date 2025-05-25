@@ -453,9 +453,9 @@
             <div class="card-body">
               <h5 class="card-title">Datatables</h5>
              
-                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#laptopModal1" >
-                Thêm Laptop
-                 </button>
+                  <button id="btnOpenModal" type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#laptopModal1" >
+                  Thêm Laptop
+                  </button>
                 <form method="get" action="#" th:action="@{/admin/dsSP}" class="mb-3 d-flex">
                   <input type="text" name="keyword" th:value="${keyword}" class="form-control me-2" placeholder="Tìm theo tên hoặc model..."/><button type="submit" class="btn btn-primary">Tìm kiếm</button>
                 </form>
@@ -488,7 +488,7 @@
                           th:data-bs-target="${'#editLaptopModal-' + a.id}">
                           <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a th:href="@{'/laptop/delete/' + ${a.id}}"  class="btn btn-danger me-2" title="Xóa" onclick="return confirm('Bạn có chắc muốn xóa?')">
+                        <a  th:id="'delete-btn-' + ${a.id}" th:href="@{'/laptop/delete/' + ${a.id}}"  class="btn btn-danger me-2" title="Xóa" onclick="return confirm('Bạn có chắc muốn xóa?')">
                           <i class="bi bi-trash"></i>
                         </a>
                         <a href="#" class="btn btn-primary" title="Sao chép">
@@ -691,52 +691,53 @@
 <script th:src="@{/assets/js/main.js}"></script>
 
 <!-- Modal  Thêm Laptop -->
-          <div class="modal fade" id="laptopModal1" tabindex="-1" aria-labelledby="laptopModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <form id="f1" th:action="@{/laptop/save}" th:object="${laptop}" method="post" onsubmit="return validateForm('f1')">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="Label">Thêm Laptop</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
-                          </div>
-                          <div class="modal-body">
-                              <div class="mb-3">
-                                  <label>Tên Laptop</label>
-                                  <input type="text" class="form-control" th:field="*{laptop_name}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label>Model</label>
-                                  <input type="text" class="form-control" th:field="*{laptop_model}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label>Giá Gốc</label>
-                                  <input type="text" class="form-control" th:field="*{laptop_originalPrice}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label>Giá Hiện Tại</label>
-                                  <input type="text" class="form-control" th:field="*{laptop_currentPrice}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label>Discord Giảm Giá</label>
-                                  <input type="text" class="form-control" th:field="*{laptop_discord}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label>Link</label>
-                                  <input type="text" class="form-control" th:field="*{laptop_link}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label>Mô Tả</label>
-                                  <textarea class="form-control" th:field="*{laptop_description}" required></textarea>
-                              </div>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="submit" class="btn btn-success">Lưu</button>
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
+<div class="modal fade" id="laptopModal1" tabindex="-1" aria-labelledby="laptopModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="f1" th:action="@{/laptop/save}" th:object="${laptop}" method="post" onsubmit="return validateForm('f1')">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Label">Thêm Laptop</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="laptop_name">Tên Laptop</label>
+                        <input type="text" id="laptop_name" class="form-control" th:field="*{laptop_name}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laptop_model">Model</label>
+                        <input type="text" id="laptop_model" class="form-control" th:field="*{laptop_model}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laptop_originalPrice">Giá Gốc</label>
+                        <input type="text" id="laptop_originalPrice" class="form-control" th:field="*{laptop_originalPrice}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laptop_currentPrice">Giá Hiện Tại</label>
+                        <input type="text" id="laptop_currentPrice" class="form-control" th:field="*{laptop_currentPrice}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laptop_discord">Discord Giảm Giá</label>
+                        <input type="text" id="laptop_discord" class="form-control" th:field="*{laptop_discord}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laptop_link">Link</label>
+                        <input type="text" id="laptop_link" class="form-control" th:field="*{laptop_link}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="laptop_description">Mô Tả</label>
+                        <textarea id="laptop_description" class="form-control" th:field="*{laptop_description}" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 
